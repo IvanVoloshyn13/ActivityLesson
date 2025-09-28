@@ -1,19 +1,26 @@
 package com.example.activitylesson
 
+import android.Manifest
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 
 private const val TAG = "MAIN_ACTIVITY"
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
     private lateinit var btnFinish: Button
+    lateinit var transparentAct: Button
+    lateinit var navigateBtn: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         btnFinish = findViewById(R.id.btn_finish)
-        log("OnCreate")
+        transparentAct = findViewById(R.id.btn_transparent_activity)
+        navigateBtn = findViewById(R.id.btn_navigate_to)
+        log("OnCreate, savedState=$savedInstanceState")
     }
 
     override fun onStart() {
@@ -26,11 +33,19 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         btnFinish.setOnClickListener {
             finish()
         }
-        log("OnResume")
-    }
+        navigateBtn.setOnClickListener {
+            startActivity(Intent(this, SecondActivity::class.java))
+        }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
+
+//        transparentAct.setOnClickListener {
+//            ActivityCompat.requestPermissions(
+//                this,
+//                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+//                1
+//            )
+//        }
+        log("OnResume")
     }
 
     override fun onPause() {
