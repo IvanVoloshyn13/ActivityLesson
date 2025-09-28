@@ -2,15 +2,28 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_marginStart="40dp"
+    android:layout_marginEnd="40dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical|center_horizontal"
-        android:text="Hello World Activity "
-        android:textSize="36sp">
+    <Button
+        android:id="@+id/btn_navigate_to"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center|start"
+        android:backgroundTint="@color/black"
+        android:text="Navigate"
+        android:textSize="12sp" />
 
-    </TextView>
+    <Button
+        android:id="@+id/btn_finish"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center|end"
+        android:backgroundTint="?attr/colorPrimary"
+        android:text="finish"
+        android:textSize="12sp" />
 
 </FrameLayout>
+
+
+
